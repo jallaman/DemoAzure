@@ -1,0 +1,16 @@
+{
+	"name": "LocalMachine",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=E5490-01602;initial catalog=LocalDevelopment;user id=jwala",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlYmI0MGQ4NS01MDJjLTQxMDEtOGM2My04NDBhY2U2NmYzYjYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntimeFromLocalInstance",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

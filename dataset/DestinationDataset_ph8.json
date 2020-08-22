@@ -1,0 +1,41 @@
+{
+	"name": "DestinationDataset_ph8",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "first",
+				"type": "nchar"
+			},
+			{
+				"name": "last",
+				"type": "nchar"
+			},
+			{
+				"name": "dob",
+				"type": "date"
+			},
+			{
+				"name": "lastmodified",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "contact"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,113 +1,121 @@
 {
-    "name": "CopyLocalDataToADLS",
-    "properties": {
-        "activities": [
-            {
-                "name": "CopyLocalDataToADLS",
-                "type": "Copy",
-                "dependsOn": [],
-                "policy": {
-                    "timeout": "7.00:00:00",
-                    "retry": 0,
-                    "retryIntervalInSeconds": 30,
-                    "secureOutput": false,
-                    "secureInput": false
-                },
-                "userProperties": [
-                    {
-                        "name": "Source",
-                        "value": "dbo.customers"
-                    },
-                    {
-                        "name": "Destination",
-                        "value": "dbo.contact"
-                    }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "SqlServerSource",
-                        "partitionOption": "None"
-                    },
-                    "sink": {
-                        "type": "AzureSqlSink"
-                    },
-                    "enableStaging": false,
-                    "validateDataConsistency": false,
-                    "translator": {
-                        "type": "TabularTranslator",
-                        "mappings": [
-                            {
-                                "source": {
-                                    "name": "firstName",
-                                    "type": "String",
-                                    "physicalType": "varchar"
-                                },
-                                "sink": {
-                                    "name": "first",
-                                    "type": "String",
-                                    "physicalType": "nchar"
-                                }
-                            },
-                            {
-                                "source": {
-                                    "name": "lastName",
-                                    "type": "String",
-                                    "physicalType": "varchar"
-                                },
-                                "sink": {
-                                    "name": "last",
-                                    "type": "String",
-                                    "physicalType": "nchar"
-                                }
-                            },
-                            {
-                                "source": {
-                                    "name": "birthDay",
-                                    "type": "Date",
-                                    "physicalType": "date"
-                                },
-                                "sink": {
-                                    "name": "dob",
-                                    "type": "Date",
-                                    "physicalType": "date"
-                                }
-                            },
-                            {
-                                "source": {
-                                    "name": "modifiedOn",
-                                    "type": "DateTime",
-                                    "physicalType": "datetime"
-                                },
-                                "sink": {
-                                    "name": "lastmodified",
-                                    "type": "DateTime",
-                                    "physicalType": "datetime"
-                                }
-                            }
-                        ],
-                        "typeConversion": true,
-                        "typeConversionSettings": {
-                            "allowDataTruncation": true,
-                            "treatBooleanAsNumber": false
-                        }
-                    }
-                },
-                "inputs": [
-                    {
-                        "referenceName": "SourceDataset_ph8",
-                        "type": "DatasetReference"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "referenceName": "DestinationDataset_ph8",
-                        "type": "DatasetReference"
-                    }
-                ]
-            }
-        ],
-        "annotations": [],
-        "lastPublishTime": "2020-08-21T22:33:59Z"
-    },
-    "type": "Microsoft.DataFactory/factories/pipelines"
+	"name": "CopyLocalDataToADLS",
+	"properties": {
+		"activities": [
+			{
+				"name": "CopyLocalDataToADLS",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "dbo.customers"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.contact"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureDataLakeStoreWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "firstName",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "first",
+									"type": "String",
+									"physicalType": "nchar"
+								}
+							},
+							{
+								"source": {
+									"name": "lastName",
+									"type": "String",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "last",
+									"type": "String",
+									"physicalType": "nchar"
+								}
+							},
+							{
+								"source": {
+									"name": "birthDay",
+									"type": "Date",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "dob",
+									"type": "Date",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedOn",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "lastmodified",
+									"type": "DateTime",
+									"physicalType": "datetime"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "LocalDatabaseSalesTable",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-08-21T22:33:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

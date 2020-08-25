@@ -62,6 +62,108 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "CopyDataToSQLAzure",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "CopyLocalDataToADLS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "dbo.customers"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.Contact"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "firstName",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "FIRST",
+									"physicalType": "nchar"
+								}
+							},
+							{
+								"source": {
+									"name": "lastName",
+									"physicalType": "varchar"
+								},
+								"sink": {
+									"name": "LAST",
+									"physicalType": "nchar"
+								}
+							},
+							{
+								"source": {
+									"name": "birthDay",
+									"physicalType": "date"
+								},
+								"sink": {
+									"name": "DOB",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "modifiedOn",
+									"physicalType": "datetime"
+								},
+								"sink": {
+									"name": "LastModified",
+									"physicalType": "datetime"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_qjg",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_qjg",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": [],

@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFCookBook-Devops"
+		},
+		"AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": ""
+		},
+		"LocalMachine_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_dataLakeStoreUri": {
+			"value": "https://inotekdemodatalake.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_tenant": {
+			"value": "ce9938cf-bd43-4a42-a638-3631e912dcc9"
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_subscriptionId": {
+			"value": "8a4251a5-a862-451d-99cb-d30671a4d816"
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_resourceGroupName": {
+			"value": "Default-BizTalk-East-US"
+		}
+	}
+}

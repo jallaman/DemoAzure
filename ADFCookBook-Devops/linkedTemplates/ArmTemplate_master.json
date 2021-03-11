@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADFCookBook-Devops"
+		},
+		"AzureSqlDatabase_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase'"
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSynapseAnalytics1'"
+		},
+		"LocalMachine_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LocalMachine'"
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_dataLakeStoreUri": {
+			"type": "string",
+			"defaultValue": "https://inotekdemodatalake.azuredatalakestore.net/webhdfs/v1"
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "ce9938cf-bd43-4a42-a638-3631e912dcc9"
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_subscriptionId": {
+			"type": "string",
+			"defaultValue": "8a4251a5-a862-451d-99cb-d30671a4d816"
+		},
+		"AzureDataLakeStoreMain_properties_typeProperties_resourceGroupName": {
+			"type": "string",
+			"defaultValue": "Default-BizTalk-East-US"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADFCookBook-Devops_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_connectionString')]"
+					},
+					"AzureSynapseAnalytics1_connectionString": {
+						"value": "[parameters('AzureSynapseAnalytics1_connectionString')]"
+					},
+					"LocalMachine_connectionString": {
+						"value": "[parameters('LocalMachine_connectionString')]"
+					},
+					"AzureDataLakeStoreMain_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('AzureDataLakeStoreMain_properties_typeProperties_dataLakeStoreUri')]"
+					},
+					"AzureDataLakeStoreMain_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataLakeStoreMain_properties_typeProperties_tenant')]"
+					},
+					"AzureDataLakeStoreMain_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('AzureDataLakeStoreMain_properties_typeProperties_subscriptionId')]"
+					},
+					"AzureDataLakeStoreMain_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('AzureDataLakeStoreMain_properties_typeProperties_resourceGroupName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

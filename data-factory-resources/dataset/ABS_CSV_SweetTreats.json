@@ -1,0 +1,32 @@
+{
+	"name": "ABS_CSV_SweetTreats",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfbyexamplesa",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter3"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Sales.csv.deflate",
+				"folderPath": "azure-data-factory-by-example-main/SampleData/SweetTreats/Apr-20",
+				"container": "sampledata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "x��Y�N�H\u0010}߯�x��~y\\h%6(${{s�\u0002\u000b3F\u001eO����i��\u001e��r\u0014\t\u0006E5��:uΩ�M�5��~7>���X�]3�롿;܎�&�ߟuwh>�\\�ϻv�����/gB���yx��\u0012g���[ӌէ���}���a���\b�\u0002\u000f�9c:*ŵdFD\"�-><�\b��[?�",
+				"type": "String"
+			}
+		]
+	}
+}

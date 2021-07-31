@@ -11,6 +11,9 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"container": "sampledata"
+			},
+			"compression": {
+				"type": "deflate"
 			}
 		}
 	}

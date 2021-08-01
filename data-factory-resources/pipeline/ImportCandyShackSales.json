@@ -39,13 +39,6 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
-								"sink": {
-									"name": "RowId",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
 								"source": {
 									"name": "Retailer",
 									"type": "String",
@@ -82,11 +75,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "SalesValue",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "SalesValueUSD",
 									"type": "Decimal",

@@ -38,45 +38,57 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
-								"sink": {
-									"name": "RowId",
-									"type": "Int32"
-								}
-							},
-							{
-								"sink": {
-									"name": "Retailer",
-									"type": "String"
-								}
-							},
-							{
+								"source": {
+									"path": "$['Month']"
+								},
 								"sink": {
 									"name": "SalesMonth",
 									"type": "DateTime"
 								}
 							},
 							{
+								"source": {
+									"path": "$['Company']"
+								},
+								"sink": {
+									"name": "Retailer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales'][0]['Product']"
+								},
 								"sink": {
 									"name": "Product",
 									"type": "String"
 								}
 							},
 							{
+								"source": {
+									"path": "$['Sales'][0]['ManufacturerProductCode']"
+								},
 								"sink": {
 									"name": "ManufacturerProductCode",
 									"type": "String"
 								}
 							},
 							{
-								"sink": {
-									"name": "SalesValueUSD",
-									"type": "Decimal"
-								}
-							},
-							{
+								"source": {
+									"path": "$['Sales'][0]['Units']"
+								},
 								"sink": {
 									"name": "UnitsSold",
 									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Sales'][0]['Value']"
+								},
+								"sink": {
+									"name": "SalesValueUSD",
+									"type": "Decimal"
 								}
 							}
 						]

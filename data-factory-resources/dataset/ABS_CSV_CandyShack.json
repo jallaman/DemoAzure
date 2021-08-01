@@ -14,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "*.json",
-				"folderPath": "azure-data-factory-by-example-main/SampleData/SugarCube/2020/Q2",
+				"folderPath": "azure-data-factory-by-example-main/SampleData/SugarCube/",
 				"container": "sampledata"
 			},
 			"columnDelimiter": ",",

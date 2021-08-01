@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "April.json",
+				"fileName": "*.json",
 				"folderPath": "azure-data-factory-by-example-main/SampleData/SugarCube/*/*",
 				"container": "sampledata"
 			}

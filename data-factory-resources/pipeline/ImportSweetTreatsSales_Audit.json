@@ -21,6 +21,13 @@
 							{
 								"name": "SourceFileName",
 								"value": "$$FILEPATH"
+							},
+							{
+								"name": "PipelineRunId",
+								"value": {
+									"value": "@pipeline().RunId",
+									"type": "Expression"
+								}
 							}
 						],
 						"storeSettings": {

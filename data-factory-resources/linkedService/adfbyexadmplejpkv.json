@@ -1,0 +1,11 @@
+{
+	"name": "adfbyexadmplejpkv",
+	"properties": {
+		"description": "connection to 'adfbyexample-jp-kv'",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://adfbyexample-jp-kv.vault.azure.net/"
+		}
+	}
+}

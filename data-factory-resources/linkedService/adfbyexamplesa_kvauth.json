@@ -1,0 +1,18 @@
+{
+	"name": "adfbyexamplesa_kvauth",
+	"properties": {
+		"description": "Blob storage in 'adfbyexamplesa' storage account. Connection authorized by using key vault secret.",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "adfbyexadmplejpkv",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "StorageAccountConnectionString"
+			}
+		}
+	}
+}

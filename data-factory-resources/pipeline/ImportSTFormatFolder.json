@@ -72,8 +72,19 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ABS_CSV_SweetTreats",
-						"type": "DatasetReference"
+						"referenceName": "ABS_CSV_adfbyexamplejpsa_kvauth",
+						"type": "DatasetReference",
+						"parameters": {
+							"Container": "sampledata",
+							"Directory": {
+								"value": "@pipeline().parameters.WildcardFolderPath",
+								"type": "Expression"
+							},
+							"File": {
+								"value": "@pipeline().parameters.WildcardFileName",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [

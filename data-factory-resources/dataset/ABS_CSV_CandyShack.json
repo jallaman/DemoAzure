@@ -24,7 +24,27 @@
 		},
 		"schema": [
 			{
-				"name": "x��Y�N�H\u0010}߯�x��~y\\h%6(${{s�\u0002\u000b3F\u001eO����i��\u001e��r\u0014\t\u0006E5��:uΩ�M�5��~7>���X�]3�롿;܎�&�ߟuwh>�\\�ϻv�����/gB���yx��\u0012g���[ӌէ���}���a���\b�\u0002\u000f�9c:*ŵdFD\"�-><�\b��[?�",
+				"name": "Retailer",
+				"type": "String"
+			},
+			{
+				"name": "SkuCode",
+				"type": "String"
+			},
+			{
+				"name": "Product",
+				"type": "String"
+			},
+			{
+				"name": "SalesMonth",
+				"type": "String"
+			},
+			{
+				"name": "SalesValue",
+				"type": "String"
+			},
+			{
+				"name": "UnitsSold",
 				"type": "String"
 			}
 		]

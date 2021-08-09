@@ -1,0 +1,23 @@
+{
+	"name": "TransformJollyGoodSales",
+	"properties": {
+		"folder": {
+			"name": "Chapter7"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "XLSX_JollyGood",
+						"type": "DatasetReference"
+					},
+					"name": "JollyGoodSales"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(output(\n\t\tPeriod as string,\n\t\tProduct as string,\n\t\t{Unit Price} as string,\n\t\tCurrency as string,\n\t\t{Units Sold} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> JollyGoodSales"
+		}
+	}
+}

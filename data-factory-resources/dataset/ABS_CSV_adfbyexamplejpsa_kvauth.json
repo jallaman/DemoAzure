@@ -16,6 +16,10 @@
 			"File": {
 				"type": "string",
 				"defaultValue": "."
+			},
+			"LinkedServiceConnection": {
+				"type": "string",
+				"defaultValue": "StrageAccountConncetionString"
 			}
 		},
 		"folder": {
